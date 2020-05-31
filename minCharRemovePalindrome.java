@@ -22,11 +22,12 @@ public class minCharRemovePalindrome {
     }
 
     static int findMinCharsToRemove(String a) {
+        int n = a.length();
+        int[][] dp = new int[n][n];
+        boolean[][] toTake = new boolean[n][n];
 
-        int[][] dp = new int[a.length()][a.length()];
-
-        for (int L = 0; L < dp.length; L++) {
-            for (int i = 0; i < dp.length - L; i++) {
+        for (int L = 0; L < n; L++) {
+            for (int i = 0; i < n - L; i++) {
                 int j = i + L;
 
                 if (i == j) {
@@ -36,15 +37,17 @@ public class minCharRemovePalindrome {
 
                 if (a.charAt(i) == a.charAt(j)) {
                     dp[i][j] = dp[i + 1][j - 1];
+                    toTake[i][j] = true;
                 } else {
+
                     dp[i][j] = 1 + Math.min(dp[i + 1][j], dp[i][j - 1]);
                 }
             }
         }
 
-        for (int i = 0; i < dp.length; i++) {
+        for (int i = 0; i < n; i++) {
             System.out.println(Arrays.toString(dp[i]));
         }
-        return dp[0][a.length() - 1];
+        return dp[0][n - 1];
     }
 }
