@@ -2,8 +2,12 @@ import java.util.Arrays;
 
 public class LCS {
     public static void main(String[] args) {
-        String a = "ACHEFMGLP";
-        String b = "XYCEPQMLG";
+        // String a = "ACHEFMGLP";
+        // String b = "XYCEPQMLG";
+        // String a = "YXAE";
+        // String b = "XPAE";
+        String a = "KRISHNARAJ";
+        String b = "SINDHU";
         System.out.println(findLCS(a, b, a.length() - 1, b.length() - 1));
         System.out.println(findLCS(a, b));
     }
@@ -28,7 +32,7 @@ public class LCS {
         System.out.println("[ ][ ]" + Arrays.toString(b.toCharArray()));
 
         for (int i = 0; i < dp.length; i++) {
-            for (int j = 0; j < dp.length; j++) {
+            for (int j = 0; j < dp[i].length; j++) {
                 if (i == 0 || j == 0) {
                     dp[i][j] = 0;
                     continue;
