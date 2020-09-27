@@ -4,11 +4,11 @@ import java.util.Set;
 
 public class countWays {
     public static void main(String[] args) {
-        // String input = "pineapplepenapple";
-        // Set<String> words = new HashSet<>(Arrays.asList("apple", "pen", "applepen", "pine", "pineapple"));
+        String input = "pineapplepenapple";
+        Set<String> words = new HashSet<>(Arrays.asList("apple", "pen", "applepen", "pine", "pineapple"));
 
-        String input = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
-        Set<String> words = new HashSet<>(Arrays.asList("a", "aa", "aaa", "aaaa"));
+        // String input = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        // Set<String> words = new HashSet<>(Arrays.asList("a", "aa", "aaa", "aaaa"));
 
         // System.out.println(findCount(input, words, input.length() - 1));
         System.out.println(findCountT(input, words));

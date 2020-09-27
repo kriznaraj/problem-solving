@@ -2,9 +2,9 @@ import java.util.Arrays;
 
 public class knapsack {
     public static void main(String[] args) {
-        int w = 20;
-        int[] v = new int[] { 4, 14, 10, 5 };
-        int[] wt = new int[] { 3, 7, 10, 6 };
+        int w = 5;
+        int[] v = new int[] { 60, 100, 120 }; //{ 4, 14, 10, 5 };
+        int[] wt = new int[] { 1, 2, 3 }; //{ 3, 7, 10, 6 };
 
         System.out.println(ks(w, v, wt, wt.length - 1, new int[w+1][wt.length]));
         System.out.println(ks(w, v, wt, wt.length));

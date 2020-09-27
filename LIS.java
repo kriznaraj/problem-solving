@@ -2,13 +2,17 @@ import java.util.Arrays;
 
 public class LIS {
     public static void main(String[] args) {
-        int[] arr = new int[] { 5, 2, 3, 6, 10, 7,8 };
+        // int[] arr = new int[] { 5, 2, 3, 6, 10, 7,8 };
+        // int[] arr = new int[] { 3, 4, 1, 2 };
+        int[] arr = new int[] { 3, 4, -1, 0, 6,2,3 };
         int[] mem = new int[arr.length];
 
-        System.out.println(findLis(arr, arr.length - 1));
-        System.out.println(findLisM(arr, mem, arr.length - 1));
-        System.out.println(findLisT(arr));
-        System.out.println(findLisTReconstruct(arr));
+        System.out.println(findLISBottomUp(arr));
+
+        // System.out.println(findLis(arr, arr.length - 1));
+        // System.out.println(findLisM(arr, mem, arr.length - 1));
+        // System.out.println(findLisT(arr));
+        // System.out.println(findLisTReconstruct(arr));
     }
 
     static int findLis(int[] arr, int i) {
@@ -79,6 +83,25 @@ public class LIS {
 
         System.out.println(Arrays.toString(dp));
         return dp[arr.length];
+    }
+
+    static int findLISBottomUp(int[] arr) {
+        int[] dp = new int[arr.length];
+
+        dp[0] = 1;
+
+
+        for (int i = 1; i < dp.length; i++) {
+            int max = 1;
+            for (int j = 0; j <= i; j++) {
+                if(arr[j] < arr[i]) {
+                    max = Math.max(max,  dp[j] + 1);
+                }
+            }
+            dp[i] = max;
+        }
+        System.out.println(Arrays.toString(dp));
+        return Arrays.stream(dp).max().getAsInt();
     }
 
     static int findLisTReconstruct(int[] arr) {

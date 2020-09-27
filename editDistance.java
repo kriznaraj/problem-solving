@@ -41,6 +41,7 @@ public class editDistance {
 
         int[][] dp = new int[a.length() + 1][b.length() + 1];
 
+        System.out.println("[ ][ ]" + Arrays.toString(b.toCharArray()));
         for (int i = 0; i < a.length() + 1; i++) {
             for (int j = 0; j < b.length() + 1; j++) {
 
@@ -69,9 +70,20 @@ public class editDistance {
                     dp[i][j] = Math.min(min, replace);
                 }
             }
-            System.out.println(Arrays.toString(dp[i]));
+            if (i > 0) {
+                System.out.println("[" + a.charAt(i - 1) + "]" + Arrays.toString(dp[i]));
+            } else {
+                System.out.println("[ ]" + Arrays.toString(dp[i]));
+            }
         }
 
         return dp[a.length()][b.length()];
     }
+
+    // [ ][ ][G, E, T]
+    // [ ][0, 1, 2, 3]
+    // [G][1, 0, 1, 2]
+    // [O][2, 1, 1, 2]
+    // [A][3, 2, 2, 2]
+    // [T][4, 3, 3, 2]
 }

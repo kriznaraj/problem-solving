@@ -9,7 +9,7 @@ public class combinationSum {
         System.out.println("---------");
         findCombSum(new int[] {1, 1, 2, 5, 6, 7, 10 }, new ArrayList<>(), 0, 8, 0);
     }
-
+    
     static void findCombSum(int[] input, List<Integer> partial, int sum, int k, int start) {
         if (sum == k) {
             System.out.println(Arrays.toString(partial.toArray()));
@@ -35,11 +35,12 @@ public class combinationSum {
             return;
         }
 
+
         if (i == input.length) {
             return;
         }
 
-        if (sum + input[i] <= k) {
+        if (sum + input[i] <= k ) {
             partial.add(input[i]);
             findCombinationSum2(input, partial, sum + input[i], k, i + 1);
             partial.remove(partial.size() - 1);
